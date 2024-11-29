@@ -13,5 +13,5 @@ jobs:
       ssh_host: ${{ secrets.SSH_HOST }}
     with:
       docker_compose_project_name: gateway
-      docker_compose_volumes_folder: ${{ github.workspace }}/volumes
+      docker_compose_volumes_folder: volumes
       destroy: false
