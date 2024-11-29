@@ -7,16 +7,11 @@ on:
 
 jobs:
   deployment:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Deployment
-        uses: fssou/gh-workflows/.github/workflows/reusable-deploy-docker-compose-with-ssh.yaml@main
-        with:
-          ssh_key: ${{ secrets.SSH_KEY }}
-          ssh_host: ${{ secrets.SSH_HOST }}
-          docker_compose_project_name: gateway
-          docker_compose_volumes_folder: ${{ github.workspace }}/volumes
-          destroy: false
+    uses: fssou/gh-workflows/.github/workflows/reusable-deploy-docker-compose-with-ssh.yaml@main
+    secrets:
+      ssh_key: ${{ secrets.SSH_KEY }}
+      ssh_host: ${{ secrets.SSH_HOST }}
+    with:
+      docker_compose_project_name: gateway
+      docker_compose_volumes_folder: ${{ github.workspace }}/volumes
+      destroy: false
