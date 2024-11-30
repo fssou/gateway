@@ -2,7 +2,7 @@ services:
   gateway:
     image: nginx
     volumes:
-      - ./nginx-data:/etc/nginx
+      - ./volumes/nginx-data:/etc/nginx
       - /etc/letsencrypt:/etc/letsencrypt
     networks:
       gateway:
