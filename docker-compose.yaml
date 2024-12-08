@@ -3,7 +3,8 @@ services:
     image: nginx
     volumes:
       - ./volumes/nginx-data:/etc/nginx
-      - /etc/letsencrypt:/etc/letsencrypt
+      - /etc/letsencrypt/live/francl.in:/etc/letsencrypt/live/francl.in:ro
+      - /etc/letsencrypt/archive/francl.in:/etc/letsencrypt/archive/francl.in:ro
     networks:
       gateway:
         aliases:
